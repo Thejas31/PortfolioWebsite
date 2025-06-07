@@ -1,0 +1,205 @@
+/* Base styles */
+body, html {
+    height: 100%;
+    width: 100%;
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main container */
+.resumeMain {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: stretch;
+    font-family: "Winky Rough", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: rgb(35, 35, 35);
+    justify-content: center;
+    border: 5px solid rgb(0, 0, 0);
+}
+
+/* Left panel */
+.resumeLeft {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 50%;
+    max-width: 500px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden; /* prevent scroll */
+    padding: 20px;
+     position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Social icons section */
+.resumeSocials {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.resumeSocials a {
+    color: rgb(20, 20, 20);
+    font-size: 1.4em;
+    transition: transform 0.2s ease;
+}
+
+.resumeSocials a:hover {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+/* Right panel */
+.resumeRight {
+    display: flex;
+    overflow-y: scroll;
+  padding: 30px;
+  scroll-behavior: smooth;
+    flex-direction: column;
+    background-color: rgb(163, 207, 243);
+    width: 70%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.resumeRight::-webkit-scrollbar {
+    width: 40px;
+}
+.resumeRight h1{
+    border-bottom: 2px solid #333;
+}
+
+
+.itemBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* border-bottom: 1px solid #333; */
+  padding: 15px 0;
+  gap: 20px;
+}
+
+.itemBlock .left {
+  flex: 1;
+  max-width: calc(100% - 160px); /* Give room for the fixed right block */
+}
+
+.itemBlock .left h3 {
+  margin: 0;
+}
+.itemBlock .left h1 {
+  margin: 0;
+  border-bottom: 2px solid #333;
+}
+
+.itemBlock .left p {
+  margin: 5px 0;
+  white-space: pre-line;
+}
+
+.itemBlock .right {
+  width: 140px; /* FIXED WIDTH FOR ALIGNMENT */
+  text-align: right;
+}
+
+.itemBlock .right .top {
+  display: block;
+  font-weight: bold;
+}
+
+.itemBlock .right .bottom {
+  display: block;
+  font-size: 0.9em;
+  color: #444;
+}
+section {
+  /* font-size: 1.8em; */
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 5px solid #222; /* bold underline for section heading */
+}
+
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+    .resumeLeft {
+        width: 35%;
+        max-width: none;
+        padding: 20px;
+    }
+
+    .resumeRight {
+        width: 65%;
+        padding: 30px;
+    }
+
+    .buttons {
+        gap: 30px;
+        font-size: 22px;
+    }
+
+    .content {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .resumeMain {
+        flex-direction: column;
+        height: auto;
+        align-items: stretch;
+        justify-content: flex-start;
+        overflow: auto; /* Allow whole page scrolling */
+    }
+
+    .resumeLeft,
+    .resumeRight {
+        width: 100% !important;
+        height: auto;
+        margin-left: 0;
+        padding: 20px;
+        align-items: center;
+        position: static !important; /* Remove sticky behavior */
+        flex-wrap: wrap;
+    }
+
+    .resumeRight {
+        overflow-y: visible; /* Disable individual scroll for mobile */
+    }
+
+    body, html {
+        overflow: auto; /* Enable full-page scroll */
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .resumeLeft h3 {
+        font-size: 1.4em;
+    }
+
+    .buttons a {
+        font-size: 0.9em;
+        padding: 10px 16px;
+    }
+
+    .resumeSocials a {
+        font-size: 1em;
+    }
+}
